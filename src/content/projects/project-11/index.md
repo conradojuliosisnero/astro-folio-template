@@ -9,7 +9,7 @@ tags:
 - Javascript
 - TmdbApi
 
-demoUrl: https://moviescon.vercel.app/
+demoUrl: https://moviesconv2.netlify.app/
 repoUrl: https://github.com/conradojuliosisnero/Movies-project
 ---
 
