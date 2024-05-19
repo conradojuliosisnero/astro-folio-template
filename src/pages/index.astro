@@ -7,10 +7,10 @@ import { SITE, SOCIALS } from "@consts";
 import TwinklingStars from "@components/TwinklingStars.astro";
 import MeteorShower from "@components/MeteorShower.astro";
 
-const posts = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
+// const posts = (await getCollection("blog"))
+//   .filter((post) => !post.data.draft)
+//   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+//   .slice(0, 3);
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
