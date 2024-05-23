@@ -7,7 +7,7 @@ tags:
 - Python
 - ORM
 - FastApi
-- SQLALCHEMY
+
 
 repoUrl: https://github.com/conradojuliosisnero/FastApi
 ---

@@ -6,7 +6,7 @@ draft: false
 tags:
 - Html
 - Sass
-- JavaScript
+- Javascript
 
 demoUrl: https://conradojuliosisnero.github.io/login-validate/
 repoUrl: https://github.com/conradojuliosisnero/login-validate

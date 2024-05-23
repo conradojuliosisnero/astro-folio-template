@@ -6,7 +6,7 @@ draft: false
 tags:
 - Html
 - Sass
-- JavaScript
+- Javascript
 
 demoUrl: https://conradojuliosisnero.github.io/form-validate/
 repoUrl: https://github.com/conradojuliosisnero/form-validate
