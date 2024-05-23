@@ -6,7 +6,7 @@ draft: false
 tags:
 - Html
 - Css
-- JavaScript
+- Javascript
 - React
 - WeatherApi
 
