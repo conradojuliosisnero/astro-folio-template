@@ -7,7 +7,6 @@ tags:
 - Html
 - Css
 - Javascript
-- TmdbApi
 
 demoUrl: https://moviesconv2.netlify.app/
 repoUrl: https://github.com/conradojuliosisnero/Movies-project

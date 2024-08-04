@@ -8,7 +8,6 @@ tags:
 - Css
 - Javascript
 - React
-- WeatherApi
 
 demoUrl: https://weather-app-six-eta-39.vercel.app/
 repoUrl: https://github.com/conradojuliosisnero/WeatherApp
