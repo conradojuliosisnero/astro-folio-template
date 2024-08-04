@@ -7,7 +7,6 @@ tags:
 - React
 - Css
 - Javascript
-- TmdbApi
 
 demoUrl: https://moviescon.vercel.app/
 repoUrl: https://github.com/conradojuliosisnero/Movies-project

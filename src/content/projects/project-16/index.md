@@ -6,10 +6,9 @@ draft: false
 tags:
 - Html
 - Css
-- Fetch
-- JavaScript
+- Javascript
 - React
-- Redux
+
 
 # demoUrl: https://conradojuliosisnero.github.io/login-validate/
 repoUrl: https://github.com/conradojuliosisnero/Spotify-Clone
