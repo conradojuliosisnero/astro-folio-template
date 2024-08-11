@@ -1,7 +1,7 @@
 ---
 title: "Como crear un proyecto Astro"
 summary: "Tutorial para crear un proyecto Astro en VsCode"
-date: "Aug 17 2024"
+date: "Aug 11 2024"
 draft: false
 tags:
 - Tutorial

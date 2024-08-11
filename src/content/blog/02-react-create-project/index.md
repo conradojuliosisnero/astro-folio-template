@@ -1,7 +1,7 @@
 ---
 title: "Como crear un proyecto con Vite"
 summary: "Pasos para crear un proyecto con Vite en vscode y no morir en el proceso"
-date: "Agust 12 2024"
+date: "Aug 12 2024"
 draft: false
 tags:
 - Tutorial
