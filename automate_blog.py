@@ -35,6 +35,7 @@ def main():
 
         # Cambiar a la rama main, hacer merge y push
         subprocess.run(['git', 'checkout', 'main'])
+        subprocess.run(['git', 'pull','origin', 'main'])
         subprocess.run(['git', 'merge', 'develop'])
         subprocess.run(['git', 'push', 'origin', 'main'])
 
