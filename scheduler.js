@@ -6,16 +6,13 @@ function runPythonScript() {
   console.log("Iniciando tarea diaria de publicación de post...");
 
   // Ejecuta el script de Python usando el comando 'exec'
-  exec(
-    "python3 src/automate_blog.py",
-    (err, stdout, stderr) => {
-      if (err) {
-        console.error(`Error ejecutando el script de Python: ${stderr}`);
-        return;
-      }
-      console.log(stdout); // Imprime la salida del script de Python
+  exec("python3 automate_blog.py", (err, stdout, stderr) => {
+    if (err) {
+      console.error(`Error ejecutando el script de Python: ${stderr}`);
+      return;
     }
-  );
+    console.log(stdout); // Imprime la salida del script de Python
+  });
 }
 
 // Configuración de la tarea cron para que se ejecute todos los días a las 9:00 AM

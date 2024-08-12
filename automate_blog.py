@@ -30,7 +30,7 @@ def main():
         # Cambiar a la rama develop y hacer commit
         subprocess.run(['git', 'checkout', 'develop'])
         subprocess.run(['git', 'add', '.'])
-        subprocess.run(['git', 'commit', '-m', f'Publicar carpeta: {folder_to_publish}'])
+        subprocess.run(['git', 'commit', '-m', f'Publicar carpeta: {folder_to_publish} [Automated my bot]'])
         subprocess.run(['git', 'push', 'origin', 'develop'])
 
         # Cambiar a la rama main, hacer merge y push
