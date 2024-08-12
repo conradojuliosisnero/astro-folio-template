@@ -1,7 +1,5 @@
 import os
 import shutil
-import subprocess
-from datetime import datetime
 
 # Configuración de directorios
 PENDING_DIR = 'src/pages/posts/pending'
@@ -26,20 +24,6 @@ def main():
         # Mover la carpeta al directorio de blog
         move_folder(old_path, new_path)
         print(f'Carpeta publicada: {folder_to_publish}')
-
-        # Cambiar a la rama develop y hacer commit
-        subprocess.run(['git', 'checkout', 'develop'])
-        subprocess.run(['git', 'add', '.'])
-        subprocess.run(['git', 'commit', '-m', f'Publicar carpeta: {folder_to_publish} [Automated my bot]'])
-        subprocess.run(['git', 'push', 'origin', 'develop'])
-
-        # Cambiar a la rama main, hacer merge y push
-        subprocess.run(['git', 'checkout', 'main'])
-        subprocess.run(['git', 'pull','origin', 'main'])
-        subprocess.run(['git', 'merge', 'develop'])
-        subprocess.run(['git', 'push', 'origin', 'main'])
-
-        print('Carpeta subida y merge realizado con éxito.')
     else:
         print("No hay carpetas pendientes para publicar.")
 
