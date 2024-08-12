@@ -3,7 +3,6 @@ name: Publish new Post
 on:
   schedule:
     - cron: "* * * * *"  # Ejecutar cada minuto
-
   workflow_dispatch: # Permite ejecutar manualmente
 
 permissions:
@@ -30,8 +29,9 @@ jobs:
         git config --global user.name 'conradojuliosisnero'
         git config --global user.email 'conradjuliosisnero@gmail.com'
 
-    - name: Commit and push changes
+    - name: Commit and push changes to develop
       run: |
+        git checkout develop
         git add .
         if git diff --quiet; then
           echo "No changes to commit"
@@ -40,14 +40,10 @@ jobs:
           git push origin develop
         fi
 
-    - name: Fetch all branches
-      run: |
-        git fetch --all
-
     - name: Merge develop to main
       run: |
+        git fetch --all
         git checkout main
         git pull origin main
-        git fetch origin develop
-        git merge origin/develop || echo "No changes to merge"
+        git merge origin/develop --allow-unrelated-histories || echo "No changes to merge"
         git push origin main
