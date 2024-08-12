@@ -5,7 +5,6 @@ date: "Aug 12 2024"
 draft: false
 tags:
 - Nextjs
-- VSCode
 - Tutorial
 
 ---
