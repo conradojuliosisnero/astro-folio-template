@@ -1,10 +1,13 @@
-name: Publish new version
+name: Publish new Post
 
 on:
   schedule:
     - cron: "* * * * *"  # Ejecutar cada minuto
 
   workflow_dispatch: # Permite ejecutar manualmente
+
+permissions:
+  contents: write  # Da permisos de escritura a las acciones
 
 jobs:
   build:
