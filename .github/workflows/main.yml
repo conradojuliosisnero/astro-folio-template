@@ -1,37 +1,61 @@
-name: Deploy Blog Posts
+name: Publish new Post
 
 on:
   schedule:
-    - cron: '* * * * *'  # Ejecutar cada minuto
-  workflow_dispatch:
+    - cron: "* * * * *"  # Ejecutar cada minuto
+
+  workflow_dispatch: # Permite ejecutar manualmente
+
+permissions:
+  contents: write  # Da permisos de escritura a las acciones
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v3
-        with:
-          ref: main
+    - name: Check out the repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-      - name: Checkout develop branch
-        run: git checkout develop
+    - name: List branches
+      run: |
+        git branch -a
 
-      - name: Run Python script
-        run: python3 automate_blog.py
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
-      - name: Commit and push changes
-        run: |
-          git config user.name 'conradojuliosisnero'
-          git config user.email 'conradojuliosisnero@gmail.com'
-          git add .
-          git commit -m 'Update blog posts'
+    - name: Configure Git user
+      run: |
+        git config --global user.name 'conradojuliosisnero'
+        git config --global user.email 'conradjuliosisnero@gmail.com'
+
+    - name: Switch to develop branch
+      run: |
+        git fetch origin
+        git checkout develop || git checkout -b develop
+        git pull origin develop
+
+    - name: Run the Python script
+      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
+
+    - name: Commit and push changes to develop
+      run: |
+        git add .
+        if git diff --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "[bot] New post"
           git push origin develop
+        fi
 
-      - name: Checkout main branch
-        run: git checkout main
-
-      - name: Merge develop into main
-        run: |
-          git merge develop
-          git push origin main
+    - name: Switch to main branch and merge develop
+      run: |
+        git checkout main
+        git pull origin main
+        git fetch origin develop
+        git merge origin/develop || echo "No changes to merge"
+        git push origin main
