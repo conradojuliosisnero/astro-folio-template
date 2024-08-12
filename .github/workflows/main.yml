@@ -2,7 +2,7 @@ name: Publish new version
 
 on:
   schedule:
-    - cron: "* * * * *"  # Ejecutar cada minuto
+    - cron: "5 * * * *"  # Ejecutar cada minuto
 
   workflow_dispatch: # Permite ejecutar manualmente
 
@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip
 
     - name: Run the Python script
-      run: python src/automate_blog.py  # Asegúrate de que la ruta es correcta
+      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
 
     - name: Configure Git user
       run: |
