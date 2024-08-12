@@ -3,7 +3,6 @@ name: Publish new Post
 on:
   schedule:
     - cron: "* * * * *"  # Ejecutar cada minuto
-
   workflow_dispatch: # Permite ejecutar manualmente
 
 permissions:
@@ -17,11 +16,10 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0
+        fetch-depth: 0 # Asegura que se obtengan todos los commits y ramas
 
     - name: List branches
-      run: |
-        git branch -a
+      run: git branch -a
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -40,17 +38,12 @@ jobs:
     - name: Commit and push changes to develop
       run: |
         git add .
-        if git diff --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "[bot] New post"
-          git push origin develop
-        fi
+        git diff --quiet && echo "No changes to commit" || (git commit -m "[bot] New post"; git push origin develop)
 
     - name: Switch to main branch and merge develop
       run: |
         git checkout main
         git pull origin main
         git fetch origin develop
-        git merge origin/develop || echo "No changes to merge"
+        git merge --no-ff origin/develop -m "Merge develop into main"
         git push origin main
