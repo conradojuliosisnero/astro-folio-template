@@ -9,8 +9,6 @@ tags:
 
 ---
 
-Para crear un proyecto con Next.js siguiendo una estructura de Markdown más detallada y organizada, puedes seguir estos pasos. Este enfoque te permitirá entender cada paso de manera clara y concisa, facilitando la creación y configuración de tu proyecto.
-
 ### Paso 1: Preparación
 
 - **Instala Node.js**: Asegúrate de tener Node.js instalado en tu sistema. Next.js requiere Node.js versión 12.0 o superior. Puedes descargarlo desde [Node.js official website](https://nodejs.org/).
