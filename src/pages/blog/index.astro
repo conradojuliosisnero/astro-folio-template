@@ -10,8 +10,6 @@ const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-  console.log(posts);
-
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort(
   (a, b) => a.localeCompare(b)
 );
