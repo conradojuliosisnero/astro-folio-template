@@ -20,7 +20,7 @@ jobs:
         python-version: '3.x'
 
     - name: Run the Python script
-      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
+      run: python src/automate_blog.py  # Asegúrate de que la ruta es correcta
 
     - name: Configure Git user
       run: |
@@ -37,9 +37,14 @@ jobs:
           git push origin develop
         fi
 
+    - name: Fetch all branches
+      run: |
+        git fetch --all
+
     - name: Merge develop to main
       run: |
         git checkout main
         git pull origin main
-        git merge develop
+        git fetch origin develop
+        git merge origin/develop || echo "No changes to merge"
         git push origin main
