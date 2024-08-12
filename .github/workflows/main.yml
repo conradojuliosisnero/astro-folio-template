@@ -16,7 +16,13 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0 
+        fetch-depth: 0  # Obtiene todo el historial de la rama
+
+    - name: List branches and check out develop
+      run: |
+        git branch -a
+        git checkout develop || git checkout -b develop
+        git pull origin develop
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -33,7 +39,6 @@ jobs:
 
     - name: Commit and push changes to develop
       run: |
-        git checkout develop
         git add .
         if git diff --quiet; then
           echo "No changes to commit"
@@ -42,7 +47,7 @@ jobs:
           git push origin develop
         fi
 
-    - name: Merge develop to main
+    - name: Fetch all branches and merge develop to main
       run: |
         git fetch --all
         git checkout main
