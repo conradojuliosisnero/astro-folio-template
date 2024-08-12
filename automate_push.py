@@ -37,7 +37,7 @@ def main():
     stage_all_changes()
 
     # Confirmar los cambios con un mensaje de commit
-    commit_message = "New post"
+    commit_message = "New post pending review"
     print(f"Confirmando los cambios con el mensaje: '{commit_message}'.")
     commit_changes(commit_message)
 
