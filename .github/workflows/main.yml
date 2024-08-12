@@ -38,7 +38,13 @@ jobs:
     - name: Commit and push changes to develop
       run: |
         git add .
-        git diff --quiet && echo "No changes to commit" || (git commit -m "[bot] New post"; git push origin develop)
+        git status --porcelain
+        if git diff --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "[bot] New post"
+          git push origin develop
+        fi
 
     - name: Switch to main branch and merge develop
       run: |
