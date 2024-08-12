@@ -3,6 +3,7 @@ name: Deploy Blog Posts
 on:
   schedule:
     - cron: '* * * * *'  # Ejecutar cada minuto
+  workflow_dispatch:
 
 jobs:
   deploy:
