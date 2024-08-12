@@ -20,7 +20,7 @@ jobs:
         python-version: '3.x'
 
     - name: Run the Python script
-      run: python src/automate_blog.py  # Asegúrate de que la ruta es correcta
+      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
 
     - name: Configure Git user
       run: |
