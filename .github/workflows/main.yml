@@ -18,24 +18,15 @@ jobs:
       with:
         fetch-depth: 0 # Asegura que se obtengan todos los commits y ramas
 
-    - name: List branches
-      run: git branch -a
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
         
-    - name: Switch to develop branch
-      run: |
-        git fetch origin
-        git checkout develop || git checkout -b develop
-        git pull origin develop
-
     - name: Run the Python script
       run: python automate_blog.py  # Asegúrate de que la ruta es correcta
 
-    - name: Commit and push changes to develop
+    - name: Commit and push changes to main
       run: |
         git add .
         git status --porcelain
@@ -43,13 +34,5 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "[bot] New post"
-          git push origin develop
+          git push origin main
         fi
-
-    - name: Switch to main branch and merge develop
-      run: |
-        git checkout main
-        git pull origin main
-        git fetch origin develop
-        git merge --no-ff origin/develop -m "Merge develop into main"
-        git push origin main
