@@ -1,12 +1,15 @@
 import subprocess
+import sys
 
-def run_git_command(command):
+def run_git_command(command, check=True):
     """Ejecuta un comando de Git y muestra su salida."""
     try:
         output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True, universal_newlines=True)
         print(output)
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar el comando: {e.output}")
+        if check:
+            sys.exit(1)
 
 def switch_to_main_branch():
     """Cambia al branch 'main'."""
@@ -26,21 +29,21 @@ def push_changes_to_main():
 
 def main():
     # Cambiar a la rama main
+    print("Cambiando al branch 'main'.")
     switch_to_main_branch()
-    print("Cambiamos al branch 'main'.")
 
     # Agregar todos los cambios
+    print("Agregando todos los cambios al staging area.")
     stage_all_changes()
-    print("Todos los cambios están siendo agregados al staging area.")
 
     # Confirmar los cambios con un mensaje de commit
-    commit_message = "Descripción de los cambios realizados"
+    commit_message = "New post"
+    print(f"Confirmando los cambios con el mensaje: '{commit_message}'.")
     commit_changes(commit_message)
-    print(f"Confirmamos los cambios con el mensaje: '{commit_message}'")
 
     # Empujar los cambios a la rama main
+    print("Empujando los cambios a la rama 'main'.")
     push_changes_to_main()
-    print("Los cambios han sido empujados a la rama 'main'.")
 
 if __name__ == "__main__":
     main()

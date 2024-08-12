@@ -1,13 +1,11 @@
 ---
 title: "Como configurar Tailwind en Next.js"
 summary: "Pasos para configurar Tailwind en un proyecto trabajando con Next.js en VSCode"
-date: "Aug 14 2024"
+date: "Aug 13 2024"
 draft: false
 tags:
 - Nextjs
-- VSCode
 - Tailwind
-- Tutorial
 ---
 
 # Configurar Tailwind CSS en Next.js

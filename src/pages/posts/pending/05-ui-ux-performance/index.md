@@ -1,12 +1,10 @@
 ---
 title: 'Mejora tu UI-UX: Guía Práctica para Sitios Web'
 summary: 'Tips y consejos para mejorar la UI-UX de tu sitio web'
-date: "Aug 15, 2024"
+date: "Aug 14 2024"
 draft: false
 tags:
 - UI-UX
-- performance
-- seo
 ---
 
 # Mejora tu UI-UX: Guía Práctica para Sitios Web

@@ -1,7 +1,7 @@
 ---
 title: "Metodos Importantes de JavaScript para el Manejo de Datos"
 summary: "los metodos mas importantes para el manejo de datos en JavaScript"
-date: "Aug 16 2024"
+date: "Aug 15 2024"
 draft: false
 tags:
 - JavaScript
