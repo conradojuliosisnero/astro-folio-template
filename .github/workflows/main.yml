@@ -3,6 +3,7 @@ name: Publish new Post
 on:
   schedule:
     - cron: "* * * * *"  # Ejecutar cada minuto
+
   workflow_dispatch: # Permite ejecutar manualmente
 
 permissions:
@@ -16,26 +17,25 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0  # Obtiene todo el historial de la rama
-
-    - name: List branches and check out develop
-      run: |
-        git branch -a
-        git checkout develop || git checkout -b develop
-        git pull origin develop
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
-    - name: Run the Python script
-      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
-
     - name: Configure Git user
       run: |
         git config --global user.name 'conradojuliosisnero'
         git config --global user.email 'conradjuliosisnero@gmail.com'
+
+    - name: Switch to develop branch
+      run: |
+        git checkout develop
+        git pull origin develop
+
+    - name: Run the Python script
+      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
 
     - name: Commit and push changes to develop
       run: |
@@ -47,10 +47,9 @@ jobs:
           git push origin develop
         fi
 
-    - name: Fetch all branches and merge develop to main
+    - name: Switch to main branch and merge develop
       run: |
-        git fetch --all
         git checkout main
         git pull origin main
-        git merge origin/develop --allow-unrelated-histories || echo "No changes to merge"
+        git merge develop || echo "No changes to merge"
         git push origin main
