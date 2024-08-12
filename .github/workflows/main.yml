@@ -27,12 +27,9 @@ jobs:
       run: python automate_blog.py  # Asegúrate de que la ruta es correcta
 
     - name: Commit and push changes to main
-      run: |
-        git add .
-        git status --porcelain
-        if git diff --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "[bot] New post"
-          git push origin main
-        fi
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Update blog
+        commit_user_name: conradojuliosisnero
+        commit_user_email: conradojuliosisnero@gmail.com # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
+        commit_author: conradojuliosisnero
