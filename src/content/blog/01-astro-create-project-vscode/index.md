@@ -6,7 +6,6 @@ draft: false
 tags:
 - Tutorial
 - Astro
-- VSCode 
 ---
 
 # Crear un Proyecto de Astro en VSCode
