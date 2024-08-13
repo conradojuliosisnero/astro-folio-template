@@ -2,11 +2,11 @@ name: Publish new Post
 
 on:
   schedule:
-    - cron: "33 11 * * *"  # Ejecutar cada minuto
-  workflow_dispatch: # Permite ejecutar manualmente
+    - cron: "33 11 * * *"  
+  workflow_dispatch: 
 
 permissions:
-  contents: write  # Da permisos de escritura a las acciones
+  contents: write 
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0 # Asegura que se obtengan todos los commits y ramas
+        fetch-depth: 0 
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -24,12 +24,12 @@ jobs:
         python-version: '3.x'
         
     - name: Run the Python script
-      run: python automate_blog.py  # Asegúrate de que la ruta es correcta
+      run: python automate_blog.py  
 
     - name: Commit and push changes to main
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Update blog
         commit_user_name: conradojuliosisnero
-        commit_user_email: conradojuliosisnero@gmail.com # defaults to "41898282+github-actions[bot]@users.noreply.github.com"
+        commit_user_email: conradojuliosisnero@gmail.com 
         commit_author: conradojuliosisnero
