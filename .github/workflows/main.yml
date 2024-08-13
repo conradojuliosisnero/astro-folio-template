@@ -2,7 +2,7 @@ name: Publish new Post
 
 on:
   schedule:
-    - cron: "0 3 * * *"  # Ejecutar cada minuto
+    - cron: "33 11 * * *"  # Ejecutar cada minuto
   workflow_dispatch: # Permite ejecutar manualmente
 
 permissions:
