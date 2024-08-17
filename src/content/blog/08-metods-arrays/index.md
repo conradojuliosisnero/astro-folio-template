@@ -146,5 +146,3 @@ Utiliza `concat` para combinar arrays de manera no destructiva, sin modificar lo
 
 Estos métodos de arrays en JavaScript son fundamentales para cualquier desarrollador. Conocerlos y saber cuándo utilizarlos te ayudará a escribir un código más limpio y eficiente. ¡Empieza a experimentarlos en tus proyectos hoy mismo!
 ```
-
-Este post incluye los métodos de arrays más utilizados junto con ejemplos prácticos y recomendaciones, y está listo para ser publicado el 17 de agosto de 2024.
