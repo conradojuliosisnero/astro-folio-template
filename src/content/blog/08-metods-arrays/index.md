@@ -145,4 +145,3 @@ Utiliza `concat` para combinar arrays de manera no destructiva, sin modificar lo
 ---
 
 Estos métodos de arrays en JavaScript son fundamentales para cualquier desarrollador. Conocerlos y saber cuándo utilizarlos te ayudará a escribir un código más limpio y eficiente. ¡Empieza a experimentarlos en tus proyectos hoy mismo!
-```

@@ -162,4 +162,4 @@ Integrar Redux en una aplicación Next.js es un proceso sencillo cuando se sigue
 
 ¡Ahora estás listo para empezar a usar Redux en tus proyectos Next.js!
 
-```
+

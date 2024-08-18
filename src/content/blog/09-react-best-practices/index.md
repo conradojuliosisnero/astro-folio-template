@@ -131,6 +131,3 @@ const memoizedCallback = useCallback(() => {
 
 Estas mejores prácticas te ayudarán a escribir código React más limpio, eficiente y mantenible. Implementarlas en tu flujo de trabajo diario no solo mejorará la calidad de tu código, sino también la experiencia de desarrollo. ¡Sigue codificando con React y mejora continuamente!
 
-```
-
-Este post está preparado para ser publicado el 18 de agosto de 2024, y está diseñado para proporcionar consejos prácticos y recomendaciones a desarrolladores que trabajan con React.

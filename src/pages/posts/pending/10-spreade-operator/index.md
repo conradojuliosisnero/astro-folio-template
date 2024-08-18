@@ -112,6 +112,3 @@ console.log(resultado); // 6
 ---
 
 El spread operator es una herramienta versátil que puede simplificar muchas tareas comunes en JavaScript. Al dominar su uso, podrás escribir código más limpio y eficiente. ¡Empieza a experimentar con el spread operator en tus proyectos y aprovecha su potencia!
-```
-
-Este post está listo para ser publicado el 19 de agosto de 2024 y proporciona una visión completa del spread operator con ejemplos prácticos y recomendaciones.
