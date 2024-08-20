@@ -6,8 +6,6 @@ draft: false
 tags:
 - JavaScript
 - React
-- Desarrollo Web
-
 ---
 
 # Métodos de Objetos Útiles para Trabajar con React en JavaScript

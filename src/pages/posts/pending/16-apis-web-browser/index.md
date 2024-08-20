@@ -6,8 +6,6 @@ draft: false
 tags:
 - APIs
 - Frontend
-- Desarrollo Web
-
 ---
 
 # APIs del Navegador que Todo Frontend Developer Debe Conocer 🌐

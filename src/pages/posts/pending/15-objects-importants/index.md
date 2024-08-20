@@ -6,8 +6,6 @@ draft: false
 tags:
 - JavaScript
 - React
-- Desarrollo Web
-
 ---
 
 # Objetos Clave para Desarrollar en JavaScript con o sin React

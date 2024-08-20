@@ -5,8 +5,6 @@ date: "Aug 26 2024"
 draft: false
 tags:
 - APIs
-- Desarrollo Web
-
 ---
 
 # Códigos de Estado HTTP que Todo Desarrollador Debe Conocer para Conexiones con APIs

@@ -4,7 +4,7 @@ summary: "Aprende a configurar Sass en un proyecto de Next.js y descubre algunos
 date: "Sep 01 2024"
 draft: false
 tags:
-- Next.js
+- Nextjs
 - Sass
 - CSS
 ---

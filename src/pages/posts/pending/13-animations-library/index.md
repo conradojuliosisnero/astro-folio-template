@@ -6,8 +6,6 @@ draft: false
 tags:
 - JavaScript
 - Animaciones
-- Desarrollo Web
-
 ---
 
 # Librerías de JavaScript para Animar tu Sitio Web 🚀

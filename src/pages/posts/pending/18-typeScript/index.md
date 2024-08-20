@@ -5,9 +5,6 @@ date: "Aug 27 2024"
 draft: false
 tags:
 - TypeScript
-- Desarrollo Web
-- JavaScript
-
 ---
 
 # ¿Qué es TypeScript? Una Guía con Ejemplos Prácticos

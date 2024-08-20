@@ -4,7 +4,7 @@ summary: "Explora Server-Side Rendering (SSR) y sus derivados como SSG, ISR y CS
 date: "Aug 29 2024"
 draft: false
 tags:
-- Next.js
+- Nextjs
 ---
 
 # ¿Qué es SSR y sus Similares en Next.js? Ejemplos Prácticos
