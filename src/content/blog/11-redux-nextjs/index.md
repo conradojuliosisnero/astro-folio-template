@@ -6,7 +6,7 @@ draft: false
 tags:
 - Tutorial
 - Redux
-- Next.js
+- Nextjs
 - JavaScript
 ---
 
