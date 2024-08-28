@@ -5,7 +5,7 @@ date: "Aug 28 2024"
 draft: false
 tags:
 - JavaScript
-- Programación Orientada a Objetos
+- POO
 - Desarrollo Web
 
 ---
