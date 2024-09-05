@@ -1,5 +1,5 @@
 ---
-title: "Movie Search Engine"    
+title: "Metacritic App"    
 summary: "Project"
 date: "Sep 5 2024"
 draft: false
