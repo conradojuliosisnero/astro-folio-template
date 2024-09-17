@@ -5,8 +5,6 @@ date: "Sep 18 2024"
 draft: false
 tags:
   - Git
-  - Control de Versiones
-  - Linus Torvalds
 ---
 
 # 🌳 Git: La Historia Detrás del Control de Versiones que Conquistó el Mundo

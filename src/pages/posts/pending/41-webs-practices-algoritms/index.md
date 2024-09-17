@@ -5,9 +5,7 @@ date: "Sep 19 2024"
 draft: false
 tags:
   - Algoritmos
-  - Programación
   - Desarrollo de Habilidades
-  - Recursos Online
 ---
 
 # 🧠 10 Sitios Web para Convertirte en un Maestro de los Algoritmos
