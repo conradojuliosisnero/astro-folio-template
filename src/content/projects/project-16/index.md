@@ -7,10 +7,11 @@ tags:
 - Html
 - Css
 - Javascript
+- Next.js
 - React
 
 
-# demoUrl: https://conradojuliosisnero.github.io/login-validate/
+demoUrl: https://spotifyclonecon.netlify.app/home
 repoUrl: https://github.com/conradojuliosisnero/Spotify-Clone
 ---
 
