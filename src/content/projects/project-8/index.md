@@ -9,7 +9,7 @@ tags:
 - Javascript
 - React
 
-demoUrl: https://weather-app-six-eta-39.vercel.app/
+demoUrl: https://weaterappcon.netlify.app/
 repoUrl: https://github.com/conradojuliosisnero/WeatherApp
 ---
 
