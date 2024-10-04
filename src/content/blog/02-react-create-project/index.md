@@ -6,7 +6,6 @@ draft: false
 tags:
 - Tutorial
 - React
-- VSCode 
 
 ---
 

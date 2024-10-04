@@ -5,10 +5,11 @@ dateStart: "03/10/2022"
 dateEnd: "03/30/2022"
 ---
 
-I was part of a team of developers in which
-A landing page and inventory software was created.
- according to the requirements of the company in which
-We completed the work successfully.
+Desarrollé una landing page altamente personalizada utilizando Next.js y Tailwind CSS, aumentando el tráfico orgánico en un 20%. <br>
+Implementé un software de inventario intuitivo y eficiente, mejorando la gestión de stock en un 30%.<br>
+Maquetación y desarrollo web front-end.<br>
+Diseño y desarrollo de proyectos web.<br>
+Creación de páginas y sitios web funcionales e intuitivos para el usuario.
 
-- software creation
+- Software Creation
 - Landing pages

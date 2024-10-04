@@ -7,38 +7,38 @@ import { SITE, SOCIALS } from "@consts";
 import TwinklingStars from "@components/TwinklingStars.astro";
 import MeteorShower from "@components/MeteorShower.astro";
 
-// const posts = (await getCollection("blog"))
-//   .filter((post) => !post.data.draft)
-//   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-//   .slice(0, 3);
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 2);
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-const stack = [
-  {
-    text: "Astro",
-    icon: "astro",
-    href: "https://astro.build",
-  },
-  {
-    text: "Javascript",
-    icon: "javascript",
-    href: "https://www.javascript.com",
-  },
-  {
-    text: "Typescript",
-    icon: "typescript",
-    href: "https://www.typescriptlang.org",
-  },
-  {
-    text: "Tailwind",
-    icon: "tailwind",
-    href: "https://tailwindcss.com",
-  },
-];
+// const stack = [
+//   {
+//     text: "Astro",
+//     icon: "astro",
+//     href: "https://astro.build",
+//   },
+//   {
+//     text: "Javascript",
+//     icon: "javascript",
+//     href: "https://www.javascript.com",
+//   },
+//   {
+//     text: "Typescript",
+//     icon: "typescript",
+//     href: "https://www.typescriptlang.org",
+//   },
+//   {
+//     text: "Tailwind",
+//     icon: "tailwind",
+//     href: "https://tailwindcss.com",
+//   },
+// ];
 
 function calcularEdad(fechaNacimiento: string) {
   const fechaNacimientoObj = new Date(fechaNacimiento);
@@ -118,7 +118,7 @@ const myAge = calcularEdad("2003-10-17");
           <p
             class="animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75"
           >
-            Hello, I am Julio Conrado 
+            Hello, I am Julio Conrado
           </p>
           <p
             class="animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white"
@@ -173,7 +173,7 @@ const myAge = calcularEdad("2003-10-17");
       </section>
 
       <!-- Blog Preview Section -->
-      <!-- <section class="animate">
+      <section class="animate">
         <div class="space-y-4">
           <div class="flex justify-between">
             <p class="font-semibold text-black dark:text-white">Recent posts</p>
@@ -198,10 +198,10 @@ const myAge = calcularEdad("2003-10-17");
             }
           </ul>
         </div>
-      </section> -->
+      </section>
 
       <!-- Tech Stack Section -->
-      <section class="animate">
+      <!-- <section class="animate">
         <div class="space-y-4">
           <p class="font-semibold text-black dark:text-white">
             Website build with
@@ -213,7 +213,7 @@ const myAge = calcularEdad("2003-10-17");
               ))
             }
           </div>
-          <!-- <div>
+          <div>
             Performing reactivity and statefulness, special guest
             <a
               href="https://www.solidjs.com/"
@@ -226,9 +226,9 @@ const myAge = calcularEdad("2003-10-17");
                 SolidJS
               </span>
             </a>
-          </div> -->
+          </div> 
         </div>
-      </section>
+      </section> -->
 
       <!-- Project Preview Section -->
       <section class="animate">
@@ -292,5 +292,5 @@ const myAge = calcularEdad("2003-10-17");
         </div>
       </section>
     </div>
-  </div>
-</PageLayout>
+  </div></PageLayout
+>
