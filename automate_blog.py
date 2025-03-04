@@ -12,6 +12,11 @@ def move_folder(src, dst):
     shutil.move(src, dst)
 
 def main():
+    # Crear el directorio pending si no existe
+    if not os.path.exists(PENDING_DIR):
+        os.makedirs(PENDING_DIR)
+        print(f'Directorio creado: {PENDING_DIR}')
+
     # Obtener la lista de carpetas pendientes (no archivos)
     folders = sorted(os.listdir(PENDING_DIR))
 
