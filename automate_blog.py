@@ -2,8 +2,8 @@ import os
 import shutil
 
 # Configuración de directorios
-PENDING_DIR = 'src/pages/phrases/pending'
-BLOG_DIR = 'src/content/phrases'
+PENDING_DIR = 'src/pages/blog/pending'
+BLOG_DIR = 'src/content/blog'
 
 def move_folder(src, dst):
     """ Mueve una carpeta de src a dst """
