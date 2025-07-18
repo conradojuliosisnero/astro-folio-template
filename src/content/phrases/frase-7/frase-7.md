@@ -1,3 +1,4 @@
+---
 title: "Frase #7"
 summary: "frases motivadoras diarias"
 date: "Apr 10 2025"
