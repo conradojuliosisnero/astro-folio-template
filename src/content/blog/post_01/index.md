@@ -1,7 +1,7 @@
 ---
 title: "¿Qué es Astro y por qué usarlo para crear sitios web rápidos?"
 summary: "Post sobre ¿qué es astro y por qué usarlo para crear sitios web rápidos? con ejemplos y explicación completa"
-date: "Jun 18 2025"
+date: "Jun 18 2024"
 draft: false
 tags:
 - Programación
