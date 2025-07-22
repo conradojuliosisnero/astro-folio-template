@@ -1,7 +1,7 @@
 ---
 title: "Los 10 atajos de teclado en VS Code que todo programador debería conocer"
 summary: "Post sobre los 10 atajos de teclado en vs code que todo programador debería conocer con ejemplos y explicación completa"
-date: "Jun 19 2025"
+date: "Jun 19 2024"
 draft: false
 tags:
 - Programación
