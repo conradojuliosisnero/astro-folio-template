@@ -1,7 +1,7 @@
 ---
 title: "Cómo usar Git de manera eficiente: comandos y flujos básicos para proyectos personales"
 summary: "Post sobre cómo usar git de manera eficiente: comandos y flujos básicos para proyectos personales con ejemplos y explicación completa"
-date: "Jun 20 2025"
+date: "Jun 20 2024"
 draft: false
 tags:
 - Programación
