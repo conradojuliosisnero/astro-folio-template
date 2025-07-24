@@ -1,7 +1,7 @@
 ---
 title: "Diferencias entre React, Vue y Svelte en 2025: ¿cuál conviene aprender?"
 summary: "Post sobre diferencias entre react, vue y svelte en 2025: ¿cuál conviene aprender?"
-date: "Jun 21 2025"
+date: "Jun 21 2024"
 draft: false
 tags:
 - Programación
