@@ -1,7 +1,7 @@
 ---
 title: "Cómo estructurar carpetas y archivos en un proyecto de Frontend moderno"
 summary: "Post sobre cómo estructurar carpetas y archivos en un proyecto de frontend moderno"
-date: "Jun 22 2025"
+date: "Jun 22 2024"
 draft: false
 tags:
 - Programación
