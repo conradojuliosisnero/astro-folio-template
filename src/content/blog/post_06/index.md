@@ -1,7 +1,7 @@
 ---
 title: "Guía completa de props y state en React: cómo funcionan y cuándo usarlos"
 summary: "Post sobre guía completa de props y state en react: cómo funcionan y cuándo usarlos"
-date: "Jun 23 2025"
+date: "Jun 23 2024"
 draft: false
 tags:
 - Programación
