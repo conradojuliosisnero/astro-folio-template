@@ -1,7 +1,7 @@
 ---
 title: "Integrar APIs en Astro: ejemplo práctico usando la API de clima"
 summary: "Post sobre integrar apis en astro: ejemplo práctico usando la api de clima"
-date: "Jun 24 2025"
+date: "Jun 24 2024"
 draft: false
 tags:
 - Programación
