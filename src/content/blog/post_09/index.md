@@ -1,7 +1,7 @@
 ---
 title: "Cómo crear un blog técnico desde cero con Astro y Tailwind CSS"
 summary: "Post sobre cómo crear un blog técnico desde cero con astro y tailwind css"
-date: "Jun 26 2025"
+date: "Jun 26 2024"
 draft: false
 tags:
 - Programación
