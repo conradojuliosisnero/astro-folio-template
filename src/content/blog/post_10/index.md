@@ -1,7 +1,7 @@
 ---
 title: "Qué son las promesas en JavaScript y cómo funcionan con async/await"
 summary: "Post sobre qué son las promesas en javascript y cómo funcionan con async/await"
-date: "Jun 27 2025"
+date: "Jun 27 2024"
 draft: false
 tags:
 - Programación
