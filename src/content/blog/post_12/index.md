@@ -1,7 +1,7 @@
 ---
 title: "Qué es TypeScript y por qué cada vez más proyectos lo usan"
 summary: "Post sobre qué es typescript y por qué cada vez más proyectos lo usan"
-date: "Jun 29 2025"
+date: "Jun 29 2024"
 draft: false
 tags:
 - Programación
