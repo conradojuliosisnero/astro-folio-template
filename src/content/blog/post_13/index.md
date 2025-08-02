@@ -1,7 +1,7 @@
 ---
 title: "Cómo mejorar el rendimiento de tu sitio web con técnicas sencillas"
 summary: "Post sobre cómo mejorar el rendimiento de tu sitio web con técnicas sencillas"
-date: "Jun 30 2025"
+date: "Jun 30 2024"
 draft: false
 tags:
 - Programación
