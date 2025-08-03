@@ -1,7 +1,7 @@
 ---
 title: "Uso de useEffect en React: casos de uso, buenas prácticas y errores comunes"
 summary: "Post sobre uso de useeffect en react: casos de uso, buenas prácticas y errores comunes"
-date: "Jul 01 2025"
+date: "Jul 01 2024"
 draft: false
 tags:
 - Programación
