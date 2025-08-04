@@ -1,7 +1,7 @@
 ---
 title: "Cómo crear un portafolio profesional para mostrar tus proyectos como desarrollador"
 summary: "Post sobre cómo crear un portafolio profesional para mostrar tus proyectos como desarrollador"
-date: "Jul 02 2025"
+date: "Jul 02 2024"
 draft: false
 tags:
 - Programación
