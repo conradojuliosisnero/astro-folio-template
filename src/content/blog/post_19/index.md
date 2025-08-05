@@ -1,7 +1,7 @@
 ---
 title: "Qué son los hooks en React: guía para principiantes"
 summary: "Post sobre qué son los hooks en react: guía para principiantes"
-date: "Jul 06 2025"
+date: "Jul 06 2024"
 draft: false
 tags:
 - Programación
