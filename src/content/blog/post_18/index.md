@@ -1,7 +1,7 @@
 ---
 title: "Ventajas de usar Tailwind CSS frente a CSS tradicional"
 summary: "Post sobre ventajas de usar tailwind css frente a css tradicional"
-date: "Jul 05 2025"
+date: "Jul 05 2024"
 draft: false
 tags:
 - Programación
