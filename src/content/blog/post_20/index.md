@@ -1,7 +1,7 @@
 ---
 title: "Guía rápida para crear animaciones con Framer Motion en React"
 summary: "Post sobre guía rápida para crear animaciones con framer motion en react"
-date: "Jul 07 2025"
+date: "Jul 07 2024"
 draft: false
 tags:
 - Programación
