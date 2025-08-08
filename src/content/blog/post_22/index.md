@@ -1,7 +1,7 @@
 ---
 title: "Los mejores recursos gratuitos para aprender programación en 2025"
 summary: "Post sobre los mejores recursos gratuitos para aprender programación en 2025"
-date: "Jul 09 2025"
+date: "Jul 09 2024"
 draft: false
 tags:
 - Programación
