@@ -1,7 +1,7 @@
 ---
 title: "Qué es GitHub Actions y cómo automatizar tu flujo de trabajo"
 summary: "Post sobre qué es github actions y cómo automatizar tu flujo de trabajo"
-date: "Jul 10 2025"
+date: "Jul 10 2024"
 draft: false
 tags:
 - Programación
