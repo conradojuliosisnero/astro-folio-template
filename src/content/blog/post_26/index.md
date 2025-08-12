@@ -1,7 +1,7 @@
 ---
 title: "Consejos para mejorar la legibilidad y mantenibilidad de tu código"
 summary: "Post sobre consejos para mejorar la legibilidad y mantenibilidad de tu código"
-date: "Jul 13 2025"
+date: "Jul 13 2024"
 draft: false
 tags:
 - Programación
