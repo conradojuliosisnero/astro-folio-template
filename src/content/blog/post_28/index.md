@@ -1,7 +1,7 @@
 ---
 title: "Cómo hacer deploy de un sitio Astro en Netlify paso a paso"
 summary: "Post sobre cómo hacer deploy de un sitio astro en netlify paso a paso"
-date: "Jul 15 2025"
+date: "Jul 15 2024"
 draft: false
 tags:
 - Programación
