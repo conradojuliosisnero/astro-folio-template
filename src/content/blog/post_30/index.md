@@ -1,7 +1,7 @@
 ---
 title: "Diferencias entre SSR, CSR y SSG: qué son y cuándo usarlos en tus proyectos"
 summary: "Post sobre diferencias entre ssr, csr y ssg: qué son y cuándo usarlos en tus proyectos"
-date: "Jul 17 2025"
+date: "Jul 17 2024"
 draft: false
 tags:
 - Programación
