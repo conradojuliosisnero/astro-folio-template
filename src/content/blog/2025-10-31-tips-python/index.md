@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para Python"
 summary: "Consejos y trucos esenciales para trabajar con Python"
-date: "Sep 11 2025"
+date: "Oct 31 2025"
 draft: false
 tags:
 - Tips
