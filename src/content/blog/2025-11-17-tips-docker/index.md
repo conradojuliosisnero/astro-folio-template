@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para Docker"
 summary: "Consejos y trucos esenciales para trabajar con Docker"
-date: "Sep 28 2025"
+date: "Nov 17 2025"
 draft: false
 tags:
 - Tips
