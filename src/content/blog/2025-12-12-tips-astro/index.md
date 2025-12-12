@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para Astro"
 summary: "Consejos y trucos esenciales para trabajar con Astro"
-date: "Oct 23 2025"
+date: "Dec 12 2025"
 draft: false
 tags:
 - Tips
