@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para Performance Web"
 summary: "Consejos y trucos esenciales para trabajar con Performance Web"
-date: "Oct 24 2025"
+date: "Dec 13 2025"
 draft: false
 tags:
 - Tips
