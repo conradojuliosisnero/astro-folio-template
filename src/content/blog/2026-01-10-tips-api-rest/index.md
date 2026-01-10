@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para API REST"
 summary: "Consejos y trucos esenciales para trabajar con API REST"
-date: "Nov 21 2025"
+date: "Jan 10 2026"
 draft: false
 tags:
 - Tips
