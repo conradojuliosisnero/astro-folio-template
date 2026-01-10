@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard";
-import StackCard from "@components/StackCard.astro";
+// import StackCard from "@components/StackCard.astro";
 import { SITE, SOCIALS } from "@consts";
 import TwinklingStars from "@components/TwinklingStars.astro";
 import MeteorShower from "@components/MeteorShower.astro";
@@ -17,50 +17,19 @@ const projects = (await getCollection("projects"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-// const stack = [
-//   {
-//     text: "Astro",
-//     icon: "astro",
-//     href: "https://astro.build",
-//   },
-//   {
-//     text: "Javascript",
-//     icon: "javascript",
-//     href: "https://www.javascript.com",
-//   },
-//   {
-//     text: "Typescript",
-//     icon: "typescript",
-//     href: "https://www.typescriptlang.org",
-//   },
-//   {
-//     text: "Tailwind",
-//     icon: "tailwind",
-//     href: "https://tailwindcss.com",
-//   },
-// ];
 
-function calcularEdad(fechaNacimiento: string) {
-  const fechaNacimientoObj = new Date(fechaNacimiento);
-  const fechaActual = new Date();
+// calculate date for determining experience years
+const calculateDate = (startDate: string) => {
+  const start = new Date(startDate);
+  const now = new Date();
+  const diffInMs = now.getTime() - start.getTime();
+  const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+  return Math.floor(diffInYears);
+};
 
-  let edad = fechaActual.getFullYear() - fechaNacimientoObj.getFullYear();
+const experienceYears = calculateDate("2023-01-01");
 
-  const mesActual = fechaActual.getMonth();
-  const mesNacimiento = fechaNacimientoObj.getMonth();
 
-  if (
-    mesActual < mesNacimiento ||
-    (mesActual === mesNacimiento &&
-      fechaActual.getDate() < fechaNacimientoObj.getDate())
-  ) {
-    edad--;
-  }
-
-  return edad;
-}
-
-const myAge = calcularEdad("2003-10-17");
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
@@ -123,10 +92,10 @@ const myAge = calcularEdad("2003-10-17");
           <p
             class="animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white"
           >
-            Frontend Developer
+            Frontend Engineer
           </p>
           <p class="animated text-sm md:text-base lg:text-lg opacity-75">
-            Currently focused on being an excellent developer.
+            
           </p>
           <div
             id="ctaButtons"
@@ -156,18 +125,7 @@ const myAge = calcularEdad("2003-10-17");
       <section class="animate">
         <article>
           <p>
-            I am a <b><i>{myAge}-year-old Colombian Frontend Developer</i></b> with
-            <b><i>one year of experience</i></b> in the field. I consider myself
-            a
-            <b><i> proactive and enthusiastic professional</i></b>, always eager
-            to learn and grow. My skills are centered around <b
-              ><i>HTML, CSS, Sass, Tailwind, BoostStrap, JavaScript, React</i
-              ></b
-            >, and I am familiar with popular frameworks like
-            <b><i>NextJs and Astro</i></b>. I am excited to continue expanding
-            my knowledge and contributing to the world of <b
-              ><i>Frontend Development</i></b
-            >.
+            Frontend Engineer with {experienceYears} years of experience specializing in React, Next.js, and CSS frameworks. Expert in creating attractive and responsive interfaces, transforming designs into high-quality functional code. Proactive and results-oriented, with strong communication and teamwork skills. Seeking new opportunities to apply my knowledge and contribute to innovative, high-impact projects.
           </p>
         </article>
       </section>
