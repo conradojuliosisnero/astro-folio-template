@@ -1,7 +1,7 @@
 ---
 title: "Guía completa de Performance Web"
 summary: "Guía completa para dominar Performance Web desde cero"
-date: "Dec 20 2025"
+date: "Feb 08 2026"
 draft: false
 tags:
 - Guía
