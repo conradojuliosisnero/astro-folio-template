@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para SEO"
 summary: "Consejos y trucos esenciales para trabajar con SEO"
-date: "Feb 17 2026"
+date: "Apr 08 2026"
 draft: false
 tags:
 - Tips
