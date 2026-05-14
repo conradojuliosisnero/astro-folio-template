@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para Tailwind CSS"
 summary: "Consejos y trucos esenciales para trabajar con Tailwind CSS"
-date: "Mar 25 2026"
+date: "May 14 2026"
 draft: false
 tags:
 - Tips
