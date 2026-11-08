@@ -1,7 +1,7 @@
 ---
 title: "Guía completa de Astro"
 summary: "Guía completa para dominar Astro desde cero"
-date: "Sep 18 2026"
+date: "Nov 08 2026"
 draft: false
 tags:
 - Guía
