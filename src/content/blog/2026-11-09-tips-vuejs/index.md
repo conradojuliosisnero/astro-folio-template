@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para Vue.js"
 summary: "Consejos y trucos esenciales para trabajar con Vue.js"
-date: "Sep 19 2026"
+date: "Nov 09 2026"
 draft: false
 tags:
 - Tips
