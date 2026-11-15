@@ -84,3 +84,6 @@ export const SOCIALS: Socials = [
   },
 ];
 
+
+// Formulario de contacto: Edge Function "contact" del proyecto Supabase "portafolio"
+export const CONTACT_ENDPOINT = "https://qomtcxcrtqkjvwuofykg.supabase.co/functions/v1/contact"

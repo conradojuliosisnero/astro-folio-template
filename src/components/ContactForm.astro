@@ -1,0 +1,44 @@
+---
+import { CONTACT_ENDPOINT } from "@consts"
+---
+
+<form class="cform" data-contact-form action={CONTACT_ENDPOINT} method="post" novalidate>
+  <div class="cform-grid">
+    <div class="cfield">
+      <label for="cf-name">Nombre</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" aria-describedby="cf-name-error" />
+      <p class="cfield-error" id="cf-name-error" data-error-for="name"></p>
+    </div>
+    <div class="cfield">
+      <label for="cf-email">Correo</label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200" aria-describedby="cf-email-error" />
+      <p class="cfield-error" id="cf-email-error" data-error-for="email"></p>
+    </div>
+    <div class="cfield cfield--full">
+      <label for="cf-subject">Asunto <span class="cfield-opt">(opcional)</span></label>
+      <input id="cf-subject" name="subject" type="text" maxlength="150" aria-describedby="cf-subject-error" />
+      <p class="cfield-error" id="cf-subject-error" data-error-for="subject"></p>
+    </div>
+    <div class="cfield cfield--full">
+      <label for="cf-message">Mensaje</label>
+      <textarea id="cf-message" name="message" rows="5" required minlength="10" maxlength="5000" aria-describedby="cf-message-error"></textarea>
+      <p class="cfield-error" id="cf-message-error" data-error-for="message"></p>
+    </div>
+    <!-- Campo trampa para bots: oculto para personas -->
+    <div class="cform-hp" aria-hidden="true">
+      <label for="cf-website">No llenes este campo</label>
+      <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+  </div>
+  <div class="cform-actions">
+    <button type="submit" class="cform-submit" data-magnetic>
+      <span data-submit-label>Enviar mensaje</span>
+    </button>
+    <p class="cform-status" role="status" aria-live="polite" data-form-status></p>
+  </div>
+  <div class="cform-done" data-form-done hidden tabindex="-1">
+    <p class="cform-done-title">¡Mensaje enviado!</p>
+    <p class="cform-done-copy">Gracias por escribir. Te respondo a tu correo lo antes posible.</p>
+    <button type="button" class="pill" data-form-again>Enviar otro mensaje</button>
+  </div>
+</form>

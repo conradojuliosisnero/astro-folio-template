@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin"
 import { Flip } from "gsap/Flip"
+import { setupContactForm } from "./contact"
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, Flip)
 
@@ -210,6 +211,7 @@ export async function initMotion() {
   const motionAllowed = !prefersReduced()
   setupMobileMenu(motionAllowed)
   setupFilters(motionAllowed)
+  setupContactForm(motionAllowed, pageCleanups)
   const delay = revealCurtain()
 
   mm = gsap.matchMedia()

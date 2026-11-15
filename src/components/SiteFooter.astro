@@ -12,9 +12,10 @@ const email = SOCIALS.find((s) => s.NAME === "Email")
   {!compact && (
     <div class="sfoot-cta">
       <p class="sfoot-big" data-split-scroll>¿Hablamos?</p>
-      {email && (
-        <a class="contact-mail" href={email.HREF} data-magnetic data-cursor="Escribir">{email.TEXT}</a>
-      )}
+      <div class="sfoot-actions">
+        <a class="contact-mail" href="/#contacto" data-magnetic data-cursor="Escribir">Escríbeme</a>
+        {email && <a class="sfoot-email" href={email.HREF}>{email.TEXT}</a>}
+      </div>
     </div>
   )}
   <div class="sfoot-bar">

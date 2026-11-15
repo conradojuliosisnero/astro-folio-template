@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import SiteLayout from "@layouts/SiteLayout.astro"
 import { SITE, SOCIALS } from "@consts"
+import ContactForm from "@components/ContactForm.astro"
 
 const work = (await getCollection("work")).sort(
   (a, b) => new Date(b.data.dateStart).getTime() - new Date(a.data.dateStart).getTime()
@@ -128,15 +129,21 @@ const linkedin = SOCIALS.find((s) => s.NAME === "LinkedIn")
       <h2 class="contact-title" aria-label="Hablemos">
         <span data-split data-wave>Hablemos</span>
       </h2>
-      <p class="contact-copy">Escríbeme para un proyecto, una vacante o solo para saludar.</p>
-      {email && (
-        <a class="contact-mail" href={email.HREF} data-magnetic data-cursor="Escribir">{email.TEXT}</a>
-      )}
-      <ul class="contact-socials">
-        {github && <li><a href={github.HREF} target="_blank" rel="noopener" data-magnetic>GitHub</a></li>}
-        {linkedin && <li><a href={linkedin.HREF} target="_blank" rel="noopener" data-magnetic>LinkedIn</a></li>}
-        <li><a href="/blog" data-magnetic>Blog</a></li>
-      </ul>
+      <div class="contact-grid">
+        <div class="contact-side">
+          <p class="contact-copy">Escríbeme para un proyecto, una vacante o solo para saludar. El mensaje me llega directo al correo.</p>
+          {email && (
+            <p class="contact-alt">
+              ¿Prefieres tu propio correo? <a href={email.HREF}>{email.TEXT}</a>
+            </p>
+          )}
+          <ul class="contact-socials">
+            {github && <li><a href={github.HREF} target="_blank" rel="noopener" data-magnetic>GitHub</a></li>}
+            {linkedin && <li><a href={linkedin.HREF} target="_blank" rel="noopener" data-magnetic>LinkedIn</a></li>}
+          </ul>
+        </div>
+        <ContactForm />
+      </div>
     </section>
   </div>
 </SiteLayout>
