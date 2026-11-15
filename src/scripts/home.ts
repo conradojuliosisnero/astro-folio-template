@@ -64,10 +64,23 @@ export async function initHome() {
       const heroSplits = lines.map((el) => SplitText.create(el, { type: "chars", charsClass: "char" }))
       const [first, second] = heroSplits
       const hello = $("[data-scramble]", hero)!
+      const heroInner = $(".hero-inner", hero)!
+
+      // Cada letra va dentro de un envoltorio: la intro anima la letra y la salida
+      // con scroll anima el envoltorio. Así nunca pelean por las mismas propiedades
+      // y al volver arriba todo queda exactamente como al inicio.
+      const heroChars = [...first.chars, ...second.chars] as HTMLElement[]
+      const charWraps = heroChars.map((c) => {
+        const w = document.createElement("span")
+        w.className = "char-wrap"
+        c.replaceWith(w)
+        w.appendChild(c)
+        return w
+      })
 
       const intro = gsap.timeline({ defaults: { ease: "expo.out" } })
       intro
-        .from(hero, { clipPath: "inset(48% 48% 48% 48% round 40px)", duration: 1.3, ease: "expo.inOut" })
+        .from(heroInner, { clipPath: "inset(48% 48% 48% 48% round 40px)", duration: 1.3, ease: "expo.inOut" })
         .from(first.chars, { yPercent: 120, rotate: 14, duration: 1.4, stagger: 0.05 }, "-=0.45")
         .from(second.chars, { yPercent: -120, rotate: -14, duration: 1.4, stagger: { each: 0.05, from: "end" } }, "<0.1")
         .fromTo(
@@ -81,7 +94,7 @@ export async function initHome() {
 
       // Las letras "respiran" cuando el cursor se acerca
       if (hover) {
-        const chars = [...first.chars, ...second.chars] as HTMLElement[]
+        const chars = heroChars
         const setters = chars.map((c) => ({
           wd: gsap.quickTo(c, "--wd", { duration: 0.6, ease: "power3.out" }),
           wg: gsap.quickTo(c, "--wg", { duration: 0.6, ease: "power3.out" }),
@@ -100,25 +113,54 @@ export async function initHome() {
         on(hero, "mouseleave", () => setters.forEach((s) => (s.wd(75), s.wg(800))))
       }
 
-      // Al bajar, el hero se encoge en una tarjeta y las letras se dispersan
+      // Al bajar, el hero se encoge en una tarjeta y las letras se dispersan.
+      // La salida solo toca .hero y los envoltorios de letras (la intro anima
+      // .hero-inner y las letras), con estados iniciales explícitos.
+      const scatter = charWraps.map(() => ({
+        y: gsap.utils.random(-140, 140),
+        x: gsap.utils.random(-60, 60),
+        r: gsap.utils.random(-50, 50),
+      }))
       const exit = gsap.timeline({
-        scrollTrigger: { trigger: hero, start: "top top", end: "+=100%", scrub: 0.8, pin: true },
+        defaults: { immediateRender: false },
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "+=100%",
+          scrub: 0.8,
+          pin: true,
+          // Si la persona hace scroll antes de que termine la intro, se completa
+          onUpdate: (self) => {
+            if (self.progress > 0 && intro.isActive()) intro.progress(1)
+          },
+        },
       })
       exit
-        .to(hero, { clipPath: "inset(10% 6% 22% 6% round 48px)", ease: "none" }, 0)
-        .to(
-          [...first.chars, ...second.chars],
+        .fromTo(
+          hero,
+          { clipPath: "inset(0% 0% 0% 0% round 0px)" },
+          { clipPath: "inset(10% 6% 22% 6% round 48px)", ease: "none" },
+          0
+        )
+        .fromTo(
+          charWraps,
+          { yPercent: 0, xPercent: 0, rotate: 0, opacity: 1 },
           {
-            yPercent: () => gsap.utils.random(-140, 140),
-            xPercent: () => gsap.utils.random(-60, 60),
-            rotate: () => gsap.utils.random(-50, 50),
+            yPercent: (i) => scatter[i].y,
+            xPercent: (i) => scatter[i].x,
+            rotate: (i) => scatter[i].r,
             opacity: 0,
             ease: "power2.in",
             stagger: { each: 0.02, from: "random" },
           },
           0
         )
-        .to([".hero-hello", ".hero-foot"], { opacity: 0, y: -60, ease: "power1.in" }, 0)
+        .fromTo(
+          [".hero-hello", ".hero-foot"],
+          { opacity: 1, y: 0 },
+          { opacity: 0, y: -60, ease: "power1.in" },
+          0
+        )
 
       /* ---------------- Texto que se enciende palabra por palabra ---------------- */
       $$("[data-words]").forEach((el) => {
@@ -350,7 +392,7 @@ export async function initHome() {
             on(el, "mouseenter", () => {
               if (text) {
                 label.textContent = text
-                gsap.set(cursor, { mixBlendMode: "normal", backgroundColor: "#0a1240" })
+                gsap.set(cursor, { mixBlendMode: "normal", backgroundColor: "#232046" })
                 gsap.to(cursor, { scale: 6.5, duration: 0.4, ease: "power3.out" })
                 gsap.to(label, { opacity: 1, duration: 0.2 })
               } else {

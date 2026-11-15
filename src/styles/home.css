@@ -1,10 +1,14 @@
 /* ============ Home — tokens ============ */
 :root {
-  --cobalt: #2340ff;
-  --paper: #f2f3f7;
-  --navy: #0a1240;
-  --blush: #ffb8cc;
-  --muted: #4e5478;
+  --peri: #c3cdff;
+  --lilac: #dccbff;
+  --mint: #c4edd9;
+  --peach: #ffd6c2;
+  --butter: #fff1b8;
+  --blush: #ffc9da;
+  --paper: #f7f5fb;
+  --navy: #232046;
+  --muted: #57537a;
   --font: "Bricolage Grotesque Variable", system-ui, sans-serif;
   --pad: clamp(20px, 5vw, 72px);
 }
@@ -33,7 +37,7 @@ body.home-body main.home {
 
 .home a:focus-visible,
 .hnav a:focus-visible {
-  outline: 3px solid var(--blush);
+  outline: 3px solid var(--navy);
   outline-offset: 4px;
   border-radius: 8px;
 }
@@ -155,13 +159,13 @@ header.hnav {
 .hero {
   position: relative;
   min-height: 100svh;
-  background: var(--cobalt);
-  color: #fff;
+  color: var(--navy);
   display: flex;
   will-change: clip-path;
 }
 .hero-inner {
   width: 100%;
+  background: var(--peri);
   padding: 120px var(--pad) 40px;
   display: flex;
   flex-direction: column;
@@ -191,8 +195,11 @@ header.hnav {
 }
 .hero-line--out {
   color: transparent;
-  -webkit-text-stroke: 2px #fff;
+  -webkit-text-stroke: 2px var(--navy);
   align-self: flex-end;
+}
+.hero-name .char-wrap {
+  display: inline-block;
 }
 .hero-name .char {
   --wg: 800;
@@ -219,8 +226,8 @@ header.hnav {
   min-height: 56px;
   padding: 0 24px;
   border-radius: 999px;
-  background: #fff;
-  color: var(--cobalt);
+  background: var(--navy);
+  color: var(--paper);
   font-weight: 700;
   font-size: 18px;
   text-decoration: none;
@@ -247,8 +254,10 @@ header.hnav {
 
 /* ============ Stack (marquee) ============ */
 .stack {
-  background: var(--navy);
-  color: var(--paper);
+  background: var(--butter);
+  color: var(--navy);
+  border-top: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
   overflow: hidden;
   padding: 28px 0;
 }
@@ -272,7 +281,7 @@ header.hnav {
 }
 .stack-list li:nth-child(even) {
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--paper);
+  -webkit-text-stroke: 1.5px var(--navy);
 }
 
 /* ============ Section titles ============ */
@@ -286,7 +295,7 @@ header.hnav {
   overflow: hidden;
   padding-bottom: 0.04em;
 }
-.section-title--light { color: #fff; }
+.section-title--light { color: var(--navy); }
 .projects .section-title { font-size: clamp(64px, 10vw, 170px); }
 
 /* ============ Work ============ */
@@ -308,7 +317,7 @@ header.hnav {
 .work-progress span {
   display: block;
   height: 100%;
-  background: var(--cobalt);
+  background: var(--navy);
   transform-origin: left;
 }
 .work-list {
@@ -339,14 +348,14 @@ header.hnav {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--cobalt);
+  background: var(--peri);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1);
 }
 .job-row:hover,
 .job-row:focus-visible {
-  color: #fff;
+  color: var(--navy);
   padding-left: 24px;
   padding-right: 24px;
 }
@@ -361,7 +370,7 @@ header.hnav {
   color: var(--muted);
   transition: color 0.4s;
 }
-.job-row:hover .job-dates { color: var(--blush); }
+.job-row:hover .job-dates { color: var(--navy); }
 .job-company {
   font-size: clamp(36px, 6vw, 88px);
   font-weight: 800;
@@ -383,8 +392,8 @@ header.hnav {
 
 /* ============ Projects ============ */
 .projects {
-  background: var(--cobalt);
-  color: #fff;
+  background: var(--lilac);
+  color: var(--navy);
 }
 .projects-pin {
   min-height: 100svh;
@@ -409,14 +418,14 @@ header.hnav {
   min-height: 56px;
   padding: 0 26px;
   border-radius: 999px;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid var(--navy);
+  color: var(--navy);
   font-weight: 700;
   font-size: 18px;
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
 }
-.projects-all:hover { background: #fff; color: var(--cobalt); }
+.projects-all:hover { background: var(--navy); color: var(--paper); }
 .projects-track {
   display: flex;
   gap: clamp(16px, 2vw, 28px);
@@ -440,8 +449,9 @@ header.hnav {
   overflow: hidden;
   transform-origin: 50% 100%;
 }
-.pcard:nth-child(3n + 2) { background: var(--navy); color: var(--paper); }
-.pcard:nth-child(3n + 3) { background: var(--blush); color: var(--navy); }
+.pcard { border: 2px solid var(--navy); }
+.pcard:nth-child(3n + 2) { background: var(--mint); }
+.pcard:nth-child(3n + 3) { background: var(--peach); }
 .pcard-glyph {
   position: absolute;
   top: -0.08em;
@@ -450,7 +460,7 @@ header.hnav {
   font-weight: 800;
   font-stretch: 75%;
   line-height: 1;
-  opacity: 0.14;
+  opacity: 0.12;
   --wg: 200;
   --wd: 75;
   font-variation-settings: "wght" var(--wg), "wdth" var(--wd);
@@ -486,8 +496,8 @@ header.hnav {
 
 /* ============ Cert ============ */
 .cert {
-  background: var(--navy);
-  color: var(--paper);
+  background: var(--mint);
+  color: var(--navy);
   padding: clamp(80px, 12vw, 160px) var(--pad);
   display: flex;
   flex-direction: column;
@@ -495,7 +505,7 @@ header.hnav {
 }
 .cert-kicker {
   margin: 0;
-  color: var(--blush);
+  color: var(--muted);
   font-size: 18px;
   font-weight: 700;
 }
@@ -525,7 +535,7 @@ header.hnav {
   font-stretch: 75%;
   line-height: 0.82;
   letter-spacing: -0.02em;
-  color: var(--cobalt);
+  color: var(--navy);
 }
 .contact-title .char {
   --wg: 800;
@@ -545,15 +555,16 @@ header.hnav {
   min-height: 64px;
   padding: 0 32px;
   border-radius: 999px;
-  background: var(--cobalt);
-  color: #fff;
+  background: var(--peri);
+  color: var(--navy);
+  border: 2px solid var(--navy);
   font-size: clamp(17px, 2.2vw, 28px);
   font-weight: 700;
   text-decoration: none;
   max-width: 100%;
   overflow-wrap: anywhere;
 }
-.contact-mail:hover { color: #fff; }
+.contact-mail:hover { color: var(--navy); background: var(--blush); }
 .contact-socials {
   list-style: none;
   margin: 0;
