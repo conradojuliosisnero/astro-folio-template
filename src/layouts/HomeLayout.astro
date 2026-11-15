@@ -1,0 +1,24 @@
+---
+import "@styles/global.css"
+import "@fontsource-variable/bricolage-grotesque/standard.css"
+import "@styles/home.css"
+import BaseHead from "@components/BaseHead.astro"
+import { SITE } from "@consts"
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
+  </head>
+  <body class="home-body">
+    <slot />
+  </body>
+</html>
