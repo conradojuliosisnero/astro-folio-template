@@ -4,38 +4,38 @@ import type { Site, Page, Links, Socials } from "@types"
 export const SITE: Site = {
   TITLE: "Conrado Julio",
   DESCRIPTION:
-    "Welcome my web portfolio, a portfolio and blog for designers and developers.",
-  AUTHOR: "Mark Horn",
+    "Portafolio y blog de Julio Conrado, Frontend Engineer.",
+  AUTHOR: "Julio Conrado",
 };
 
 // Work Page
 export const WORK: Page = {
-  TITLE: "Work",
-  DESCRIPTION: "Places I have worked.",
+  TITLE: "Trabajo",
+  DESCRIPTION: "Lugares donde he trabajado.",
 }
 
 // Blog Page
 export const BLOG: Page = {
   TITLE: "Blog",
-  DESCRIPTION: "Writing on topics I am passionate about.",
+  DESCRIPTION: "Artículos sobre desarrollo web y lo que voy aprendiendo.",
 }
 
 // Phrases Page
 export const PHRASES: Page = {
   TITLE: "Phrases",
-  DESCRIPTION: "Phrases I have learned.",
+  DESCRIPTION: "Frases que me acompañan.",
 }
 
 // Projects Page 
 export const PROJECTS: Page = {
   TITLE: "Projects",
-  DESCRIPTION: "Recent projects I have worked on.",
+  DESCRIPTION: "Proyectos en los que he trabajado.",
 }
 
 // Search Page
 export const SEARCH: Page = {
   TITLE: "Search",
-  DESCRIPTION: "Search all posts and projects by keyword.",
+  DESCRIPTION: "Busca artículos y proyectos por palabra clave.",
 }
 
 // Links

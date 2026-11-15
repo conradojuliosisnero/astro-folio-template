@@ -1,0 +1,76 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content"
+import { formatDate, readingTime } from "@lib/utils"
+
+type Entry = CollectionEntry<"blog"> | CollectionEntry<"projects"> | CollectionEntry<"phrases">
+
+interface Props {
+  entry: Entry
+  tone?: "peri" | "lilac" | "mint" | "peach" | "butter"
+}
+
+const { entry, tone = "mint" } = Astro.props
+const { collection, data, body } = entry
+const { Content } = await entry.render()
+
+const backLabel: Record<string, string> = {
+  blog: "Volver al blog",
+  projects: "Volver a proyectos",
+  phrases: "Volver a frases",
+}
+
+const kindLabel: Record<string, string> = { Project: "Proyecto", Component: "Componente", Freelance: "Freelance" }
+const showSummary = collection === "blog" && data.summary
+
+const demoUrl = collection === "projects" ? (data as CollectionEntry<"projects">["data"]).demoUrl : undefined
+const repoUrl = collection === "projects" ? (data as CollectionEntry<"projects">["data"]).repoUrl : undefined
+
+const items = (await getCollection(collection))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const index = items.findIndex((x) => x.slug === entry.slug)
+const prev = items[(index - 1 + items.length) % items.length]
+const next = items[(index + 1) % items.length]
+---
+
+<div class="reading-progress" aria-hidden="true"><span></span></div>
+
+<section class={`ahero phero--${tone}`}>
+  <div class="ahero-inner">
+    <a href={`/${collection}`} class="back-link" data-magnetic>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+      {backLabel[collection]}
+    </a>
+    <p class="ahero-meta" data-hero-intro>
+      <span>{formatDate(data.date)}</span>
+      {collection !== "phrases" && <span>{readingTime(body)}</span>}
+    </p>
+    <h1 class="ahero-title" data-hero-title>{data.title}</h1>
+    {showSummary && <p class="ahero-summary" data-hero-intro>{data.summary}</p>}
+    {(collection !== "phrases") && (
+      <div class="ahero-actions" data-hero-intro>
+        {collection === "projects" && <span class="tag">{kindLabel[data.summary] ?? data.summary}</span>}
+        {demoUrl && <a class="pill pill--solid" href={demoUrl} target="_blank" rel="noopener" data-magnetic>Ver demo</a>}
+        {repoUrl && <a class="pill" href={repoUrl} target="_blank" rel="noopener" data-magnetic>Ver código</a>}
+        {collection === "blog" && data.tags.map((t) => <span class="tag">{t}</span>)}
+      </div>
+    )}
+  </div>
+</section>
+
+<div class={`abody ${collection === "phrases" ? "abody--quote" : ""}`}>
+  <article class="prose-site" data-article>
+    <Content />
+  </article>
+</div>
+
+<nav class="anext" aria-label="Más contenido">
+  <a class="anext-card" href={`/${prev.collection}/${prev.slug}`} data-cursor="Anterior">
+    <span class="anext-dir">Anterior</span>
+    <span class="anext-title">{prev.data.title}</span>
+  </a>
+  <a class="anext-card anext-card--next" href={`/${next.collection}/${next.slug}`} data-cursor="Siguiente">
+    <span class="anext-dir">Siguiente</span>
+    <span class="anext-title">{next.data.title}</span>
+  </a>
+</nav>

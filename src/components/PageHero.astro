@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string
+  intro?: string
+  tone?: "peri" | "lilac" | "mint" | "peach" | "butter"
+}
+const { title, intro, tone = "peri" } = Astro.props
+---
+
+<section class={`phero phero--${tone}`}>
+  <div class="phero-inner">
+    <h1 class="phero-title" data-hero-title>{title}</h1>
+    <div class="phero-foot">
+      {intro && <p class="phero-intro" data-hero-intro>{intro}</p>}
+      <slot />
+    </div>
+  </div>
+</section>

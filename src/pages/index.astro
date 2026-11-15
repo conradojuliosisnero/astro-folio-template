@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content"
-import HomeLayout from "@layouts/HomeLayout.astro"
+import SiteLayout from "@layouts/SiteLayout.astro"
 import { SITE, SOCIALS } from "@consts"
 
 const work = (await getCollection("work")).sort(
@@ -36,21 +36,9 @@ const github = SOCIALS.find((s) => s.NAME === "Github")
 const linkedin = SOCIALS.find((s) => s.NAME === "LinkedIn")
 ---
 
-<HomeLayout title="Inicio" description={SITE.DESCRIPTION}>
-  <div class="cursor" aria-hidden="true"><span class="cursor-label">Abrir</span></div>
+<SiteLayout title="Inicio" description={SITE.DESCRIPTION} compactFooter>
+  <div class="home">
 
-  <header class="hnav">
-    <a href="/" class="hnav-brand" data-magnetic>Julio Conrado</a>
-    <nav aria-label="Principal" class="hnav-links">
-      <a href="#trabajo">Trabajo</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="/blog">Blog</a>
-      <a href="/phrases">Frases</a>
-      <a href="#contacto" class="hnav-cta" data-magnetic>Contacto</a>
-    </nav>
-  </header>
-
-  <main class="home">
     <!-- HERO -->
     <section class="hero" id="inicio">
       <div class="hero-inner">
@@ -149,15 +137,6 @@ const linkedin = SOCIALS.find((s) => s.NAME === "LinkedIn")
         {linkedin && <li><a href={linkedin.HREF} target="_blank" rel="noopener" data-magnetic>LinkedIn</a></li>}
         <li><a href="/blog" data-magnetic>Blog</a></li>
       </ul>
-      <footer class="hfoot">
-        <span>© {new Date().getFullYear()} Julio Conrado</span>
-        <span>Hecho con Astro y GSAP</span>
-      </footer>
     </section>
-  </main>
-
-  <script>
-    import { initHome } from "../scripts/home"
-    document.addEventListener("astro:page-load", initHome)
-  </script>
-</HomeLayout>
+  </div>
+</SiteLayout>

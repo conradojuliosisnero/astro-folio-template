@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
+        "sans": ["Bricolage Grotesque Variable", ...defaultTheme.fontFamily.sans],
       },
       typography: {
         DEFAULT: {

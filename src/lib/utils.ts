@@ -6,16 +6,25 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date) {
-  return Intl.DateTimeFormat("en-US", {
+  return Intl.DateTimeFormat("es-CO", {
+    day: "numeric",
     month: "short",
-    day: "2-digit",
-    year: "numeric"
+    year: "numeric",
   }).format(date)
 }
 
-export function readingTime(html: string) {
-  const textOnly = html.replace(/<[^>]+>/g, "")
+export function readingTime(text: string) {
+  const textOnly = text.replace(/<[^>]+>/g, "")
   const wordCount = textOnly.split(/\s+/).length
-  const readingTimeMinutes = ((wordCount / 200) + 1).toFixed()
-  return `${readingTimeMinutes} min read`
+  const minutes = Math.max(1, Math.round(wordCount / 200))
+  return `${minutes} min de lectura`
+}
+
+/** Texto plano de una frase: sin markdown ni comillas envolventes */
+export function phraseText(body: string) {
+  return body
+    .replace(/[#>*_`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^["“”«]+|["“”»]+$/g, "")
 }

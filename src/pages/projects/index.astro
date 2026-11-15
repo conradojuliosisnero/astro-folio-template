@@ -1,28 +1,52 @@
 ---
 import { getCollection } from "astro:content"
-import PageLayout from "@layouts/PageLayout.astro"
-import TopLayout from "@layouts/TopLayout.astro"
-import BottomLayout from "@layouts/BottomLayout.astro"
-import Projects from "@components/Projects"
+import SiteLayout from "@layouts/SiteLayout.astro"
+import PageHero from "@components/PageHero.astro"
 import { PROJECTS } from "@consts"
 
 const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
+  .filter((p) => !p.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-const tags = [...new Set(projects.flatMap(project => project.data.tags))]
-  .sort((a, b) => a.localeCompare(b))
+const kindLabel: Record<string, string> = {
+  Project: "Proyecto",
+  Component: "Componente",
+  Freelance: "Freelance",
+}
+const kinds = [...new Set(projects.map((p) => p.data.summary))]
 ---
 
-<PageLayout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
-  <TopLayout>
-    <div class="animate page-heading">
-      {PROJECTS.TITLE}
+<SiteLayout title="Proyectos" description={PROJECTS.DESCRIPTION}>
+  <PageHero
+    title="Proyectos"
+    tone="lilac"
+    intro={`${projects.length} proyectos y componentes, desde mis primeros ejercicios hasta trabajos freelance.`}
+  >
+    <div class="filters" role="group" aria-label="Filtrar proyectos" data-filter-group="projects">
+      <button type="button" class="chip" aria-pressed="true" data-filter="all">Todos</button>
+      {kinds.map((k) => (
+        <button type="button" class="chip" aria-pressed="false" data-filter={k}>
+          {kindLabel[k] ?? k}
+        </button>
+      ))}
     </div>
-  </TopLayout>
-  <BottomLayout>
-    <div class="animate">
-      <Projects client:load tags={tags} data={projects} />
-    </div>
-  </BottomLayout>
-</PageLayout>
+  </PageHero>
+
+  <section class="pgrid-wrap">
+    <ul class="pgrid" data-filter-list="projects">
+      {projects.map((p) => (
+        <li class="pgrid-item" data-tags={p.data.summary}>
+          <a class="pcard pcard--grid" href={`/projects/${p.slug}`} data-cursor="Ver" data-tilt>
+            <span class="pcard-glyph" aria-hidden="true">{p.data.title.charAt(0)}</span>
+            <span class="pcard-meta">{kindLabel[p.data.summary] ?? p.data.summary}, {p.data.date.getFullYear()}</span>
+            <span class="pcard-title">{p.data.title}</span>
+            <span class="pcard-link">
+              {p.data.demoUrl ? "Con demo" : p.data.repoUrl ? "Con código" : "Ver detalle"}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="empty" data-filter-empty="projects" hidden>No hay proyectos de este tipo.</p>
+  </section>
+</SiteLayout>

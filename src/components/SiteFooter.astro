@@ -1,0 +1,30 @@
+---
+import { SOCIALS } from "@consts"
+
+interface Props {
+  compact?: boolean
+}
+const { compact = false } = Astro.props
+const email = SOCIALS.find((s) => s.NAME === "Email")
+---
+
+<footer class="sfoot">
+  {!compact && (
+    <div class="sfoot-cta">
+      <p class="sfoot-big" data-split-scroll>¿Hablamos?</p>
+      {email && (
+        <a class="contact-mail" href={email.HREF} data-magnetic data-cursor="Escribir">{email.TEXT}</a>
+      )}
+    </div>
+  )}
+  <div class="sfoot-bar">
+    <span>© {new Date().getFullYear()} Julio Conrado</span>
+    <ul class="sfoot-links">
+      {SOCIALS.filter((s) => s.NAME !== "Email").map((s) => (
+        <li><a href={s.HREF} target="_blank" rel="noopener">{s.NAME}</a></li>
+      ))}
+      <li><a href="/rss.xml">RSS</a></li>
+    </ul>
+    <span>Hecho con Astro y GSAP</span>
+  </div>
+</footer>

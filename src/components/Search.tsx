@@ -1,58 +1,84 @@
-import type { CollectionEntry } from "astro:content"
-import { createEffect, createSignal } from "solid-js"
+import { createMemo, createSignal, For, Show } from "solid-js"
 import Fuse from "fuse.js"
-import ArrowCard from "@components/ArrowCard"
 
-type Props = {
-  data: CollectionEntry<"blog">[]
+type Item = {
+  collection: "blog" | "projects"
+  slug: string
+  title: string
+  summary: string
+  tags: string[]
+  date: string
 }
 
-export default function Search({data}: Props) {
+type Props = {
+  data: Item[]
+}
+
+const label = { blog: "Artículo", projects: "Proyecto" } as const
+
+function formatDate(iso: string) {
+  return Intl.DateTimeFormat("es-CO", { day: "numeric", month: "short", year: "numeric" }).format(new Date(iso))
+}
+
+export default function Search({ data }: Props) {
   const [query, setQuery] = createSignal("")
-  const [results, setResults] = createSignal<CollectionEntry<"blog">[]>([])
 
   const fuse = new Fuse(data, {
-    keys: ["slug", "data.title", "data.summary", "data.tags"],
-    includeMatches: true,
+    keys: ["slug", "title", "summary", "tags"],
     minMatchCharLength: 2,
     threshold: 0.4,
   })
 
-  createEffect(() => {
-    if (query().length < 2) {
-      setResults([])
-    } else {
-      setResults(fuse.search(query()).map((result) => result.item))
-    }
-  })
-
-  const onInput = (e: Event) => {
-    const target = e.target as HTMLInputElement
-    setQuery(target.value)
-  }
+  const results = createMemo(() => (query().length < 2 ? [] : fuse.search(query()).map((r) => r.item)))
 
   return (
-    <div class="flex flex-col">
-      <div class="relative">
-        <input name="search" type="text" value={query()} onInput={onInput} autocomplete="off" spellcheck={false} placeholder="What are you looking for?" class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"/>
-        <svg class="absolute size-6 left-1.5 top-1/2 -translate-y-1/2 stroke-current">
-          <use href={`/ui.svg#search`}/>
+    <div class="search">
+      <label class="search-label" for="search-input">
+        ¿Qué estás buscando?
+      </label>
+      <div class="search-field">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
         </svg>
+        <input
+          id="search-input"
+          name="search"
+          type="search"
+          value={query()}
+          onInput={(e) => setQuery(e.currentTarget.value)}
+          autocomplete="off"
+          spellcheck={false}
+          placeholder="Docker, React, MoviesCon…"
+        />
       </div>
-      {(query().length >= 2 && results().length >= 1) && (
-        <div class="mt-12">
-          <div class="text-sm uppercase mb-2">
-            Found {results().length} results for {`'${query()}'`}
-          </div>
-          <ul class="flex flex-col gap-3">
-            {results().map(result => (
-              <li>
-                <ArrowCard entry={result} pill={true} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+
+      <p class="search-status" aria-live="polite">
+        <Show when={query().length >= 2} fallback="Escribe al menos dos letras.">
+          {results().length === 0
+            ? `No encontré nada para “${query()}”. Prueba con otra palabra.`
+            : `${results().length} resultado${results().length === 1 ? "" : "s"} para “${query()}”`}
+        </Show>
+      </p>
+
+      <ul class="plist">
+        <For each={results()}>
+          {(item) => (
+            <li class="plist-item search-hit">
+              <a class="prow" href={`/${item.collection}/${item.slug}`}>
+                <span class="prow-date">{formatDate(item.date)}</span>
+                <span class="prow-main">
+                  <span class="prow-title">{item.title}</span>
+                  <span class="prow-summary">{item.summary}</span>
+                </span>
+                <span class="prow-tags">
+                  <span class="tag">{label[item.collection]}</span>
+                </span>
+              </a>
+            </li>
+          )}
+        </For>
+      </ul>
     </div>
   )
 }

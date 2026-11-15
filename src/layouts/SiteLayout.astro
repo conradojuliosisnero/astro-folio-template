@@ -1,0 +1,42 @@
+---
+import "@styles/global.css"
+import "@fontsource-variable/bricolage-grotesque/standard.css"
+import "@styles/site.css"
+import BaseHead from "@components/BaseHead.astro"
+import SiteNav from "@components/SiteNav.astro"
+import SiteFooter from "@components/SiteFooter.astro"
+import { SITE } from "@consts"
+
+interface Props {
+  title: string
+  description: string
+  /** El home ya trae su propia sección de contacto grande */
+  compactFooter?: boolean
+}
+
+const { title, description, compactFooter = false } = Astro.props
+---
+
+<!doctype html>
+<html lang="es" transition:animate="none">
+  <head>
+    <BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
+  </head>
+  <body class="site-body">
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <div class="cursor" aria-hidden="true" transition:persist="cursor"><span class="cursor-label">Abrir</span></div>
+    <div class="curtain" aria-hidden="true" transition:persist="curtain">
+      <span class="curtain-word">Julio Conrado</span>
+    </div>
+    <SiteNav />
+    <main id="contenido" class="site-main">
+      <slot />
+    </main>
+    <SiteFooter compact={compactFooter} />
+    <script>
+      import { initMotion, setupPageTransitions } from "../scripts/motion"
+      setupPageTransitions()
+      document.addEventListener("astro:page-load", initMotion)
+    </script>
+  </body>
+</html>

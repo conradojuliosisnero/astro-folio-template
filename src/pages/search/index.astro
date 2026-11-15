@@ -1,29 +1,27 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content"
-import PageLayout from "@layouts/PageLayout.astro"
-import TopLayout from "@layouts/TopLayout.astro"
-import BottomLayout from "@layouts/BottomLayout.astro"
+import SiteLayout from "@layouts/SiteLayout.astro"
+import PageHero from "@components/PageHero.astro"
 import Search from "@components/Search"
 import { SEARCH } from "@consts"
 
-const posts = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
+const posts = (await getCollection("blog")).filter((p) => !p.data.draft)
+const projects = (await getCollection("projects")).filter((p) => !p.data.draft)
 
-const projects = (await getCollection("projects"))
-  .filter(post => !post.data.draft)
-
-const data = [...posts, ...projects] as CollectionEntry<"blog">[]
+// Solo lo necesario para el buscador, para no mandar el contenido completo al navegador
+const data = [...posts, ...projects].map((e: CollectionEntry<"blog"> | CollectionEntry<"projects">) => ({
+  collection: e.collection,
+  slug: e.slug,
+  title: e.data.title,
+  summary: e.data.summary,
+  tags: e.data.tags,
+  date: e.data.date.toISOString(),
+}))
 ---
 
-<PageLayout title={SEARCH.TITLE} description={SEARCH.DESCRIPTION}>
-  <TopLayout>
-    <div class="animate page-heading">
-      {SEARCH.TITLE}
-    </div>
-  </TopLayout>
-  <BottomLayout>
-    <div class="animate">
-      <Search client:load data={data}/>
-    </div>
-  </BottomLayout>
-</PageLayout>
+<SiteLayout title="Buscar" description={SEARCH.DESCRIPTION}>
+  <PageHero title="Buscar" tone="butter" intro="Encuentra artículos y proyectos por título, tema o palabra clave." />
+  <section class="search-wrap">
+    <Search client:load data={data} />
+  </section>
+</SiteLayout>
