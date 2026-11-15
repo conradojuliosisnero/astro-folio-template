@@ -1,5 +1,6 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts"
 import { createClient } from "jsr:@supabase/supabase-js@2"
+import { buildEmail } from "./email.ts"
 
 // Formulario de contacto de conradojulio.com
 // 1. Valida los datos y descarta bots (campo trampa + límite por IP)
@@ -37,10 +38,6 @@ function json(body: unknown, status: number, origin: string | null) {
     status,
     headers: { "Content-Type": "application/json", ...cors(origin) },
   })
-}
-
-function escapeHtml(s: string) {
-  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!))
 }
 
 async function sha256(text: string) {
@@ -106,15 +103,7 @@ Deno.serve(async (req: Request) => {
 
   const resendKey = Deno.env.get("RESEND_API_KEY")
   if (resendKey) {
-    const html = `
-      <div style="font-family:system-ui,sans-serif;color:#232046;max-width:560px">
-        <h2 style="margin:0 0 16px">Nuevo mensaje desde tu portafolio</h2>
-        <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Correo:</strong> ${escapeHtml(email)}</p>
-        ${subject ? `<p><strong>Asunto:</strong> ${escapeHtml(subject)}</p>` : ""}
-        <p style="white-space:pre-wrap;background:#f7f5fb;padding:16px;border-radius:12px">${escapeHtml(message)}</p>
-        <p style="color:#57537a;font-size:13px">Responde a este correo para contestarle directamente.</p>
-      </div>`
+    const { html, text } = buildEmail({ name, email, subject, message, createdAt: new Date(row.created_at) })
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -123,8 +112,9 @@ Deno.serve(async (req: Request) => {
           from: FROM_EMAIL,
           to: [TO_EMAIL],
           reply_to: email,
-          subject: `Contacto: ${subject || name}`.slice(0, 150),
+          subject: `${name} te escribió${subject ? ": " + subject : " desde tu portafolio"}`.slice(0, 150),
           html,
+          text,
         }),
       })
       if (res.ok) {
