@@ -1,7 +1,7 @@
 ---
 title: "Tips esenciales para GraphQL"
 summary: "Consejos y trucos esenciales para trabajar con GraphQL"
-date: "Oct 06 2026"
+date: "Nov 25 2026"
 draft: false
 tags:
 - Tips
